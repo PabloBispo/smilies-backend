@@ -4,16 +4,13 @@ from datetime import datetime
 from pydantic import BaseModel
 import enum
 
+from .models import PrazoViagem
 
-class PrazoViagem(enum.Enum):
-    curto = "curto_prazo"
-    medio = "medio_prazo"
-    longo = "longo_prazo"
 
 
 class ViagemBase(BaseModel):
     nome: str
-    prazo_viagem: PrazoViagem
+    prazo_viagem: Optional[PrazoViagem]
     milhas: int
     destino: str
     cep_destino: str
